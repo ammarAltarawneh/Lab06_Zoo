@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab06_Zoo.Zoo
 {
-    public abstract class Animal
+    public abstract class Animal  
     {
         public string Name { get; set; }
         public int NumberOfLegs { get; set; }

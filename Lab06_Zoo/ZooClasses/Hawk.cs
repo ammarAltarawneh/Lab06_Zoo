@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab06_Zoo.ZooInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace Lab06_Zoo.Zoo
 {
-    internal class Hawk : Bird
+    public class Hawk : Bird, IMigration, ILifeSpan
     {
         public override int Speed { get; set; }
         private double BeakLength { get; set; }
+        public int MigrationDestance { get ; set ; } //Interface property
+        public int LifeSpanPeriod { get ; set ; } //Interface property
+
         public Hawk(string name, int numberOfLegs, bool flyAbility, int speed, double beakLength) : base(name, numberOfLegs, flyAbility)
         {
             Name = name;
@@ -41,6 +45,16 @@ namespace Lab06_Zoo.Zoo
         public string Beak()
         {
             return $"{Name}'s Beak Length about {BeakLength}Cm";
+        }
+
+        public void MigrationHapit() // Interface method
+        {
+            Console.WriteLine($"The hawk {Name} imigrate about {MigrationDestance} Km");
+        }
+
+        public void LifeSpan() // Interface method
+        {
+            Console.WriteLine($"The hawk {Name} has a life span about {LifeSpanPeriod} years");
         }
     }
 }
